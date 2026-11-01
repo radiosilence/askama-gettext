@@ -14,6 +14,16 @@ string nobody has translated yet renders as English rather than as a blank or a 
 {{ __h("read my <cv>CV</cv>").link("cv", urls.cv)|safe }}
 ```
 
+## Install
+
+```toml
+[dependencies]
+askama_gettext = "0.1"
+```
+
+The minimum supported Rust is 1.88, set by the ICU crates. CI builds against it,
+and raising it is a minor release.
+
 ## Setup
 
 Implement one method. Askama resolves a bare `__("…")` to a method on the template
@@ -107,6 +117,24 @@ Two things worth knowing:
 - Only categories a whole number can reach are counted. CLDR gives Polish four, but
   an integer is only ever one, few or many, and gettext's three slots are those.
 
+## Development
+
+```sh
+just check   # format, lint, tests, docs, MSRV
+just fmt
+```
+
+Every change adds a changelog fragment under `changelog.d/unreleased/<section>/`.
+`CHANGELOG.md` is generated from them (see `changelog.d/README.md`) and never edited
+by hand. `just release patch|minor|major` opens the release pull request, and
+merging it publishes the crate and the GitHub release.
+
+`.github/workflows/ci-cd.yml` ends in `Checks`, the one status the ruleset requires.
+Each job runs only when the change touches what it checks, and a skipped job passes
+`Checks`. A new job needs adding to `Checks`'s `needs`; a new top-level directory of
+code needs adding to the `rust` pattern in the `changes` job.
+
 ## Licence
 
-MIT OR Apache-2.0
+Licensed under either of [Apache License 2.0](LICENSE-APACHE) or [MIT](LICENSE-MIT),
+at your option.

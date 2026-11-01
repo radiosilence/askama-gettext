@@ -1,0 +1,12 @@
+# `just audit` checks Cargo.lock against the RustSec advisory database. The CI job
+# and the weekly scheduled run both read this file, so an ignore added here applies
+# to both; each one says why the advisory does not reach this crate.
+#
+# A dependent resolves its own lockfile, so this guards the versions the crate is
+# tested against rather than the ones a dependent ends up with.
+[advisories]
+# Unmaintained crates are reported when this crate depends on them directly. One
+# pulled in by a dependency is that dependency's to replace, so it is not
+# reported; a vulnerability in it still is.
+unmaintained = "workspace"
+ignore = []

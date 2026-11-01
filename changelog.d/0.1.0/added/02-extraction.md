@@ -1,0 +1,1 @@
+- **Extraction with Askama's own parser, and merging into `.po` files.** A call whose English is not a string literal fails extraction with its line. Merging keeps translations, comments, flags and header metadata, moves a reworded message's translation to its new id as fuzzy, and names every message it deletes.

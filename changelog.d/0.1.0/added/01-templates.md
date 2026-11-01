@@ -1,0 +1,1 @@
+- **The gettext vocabulary in Askama templates.** `__`, `__p`, `__n` and `__np` resolve to methods once a template implements `Translate`. The English is the msgid, so an untranslated string renders in the source language. `%{name}` placeholders are filled by name, and the `h` variants carry markup whose tags code registers and everything else is escaped.

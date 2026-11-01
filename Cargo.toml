@@ -2,12 +2,15 @@
 name = "askama_gettext"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.88"
 description = "gettext for Askama templates: __/__p/__n in the template, extraction via Askama's own parser, CLDR plural selection"
 keywords = ["askama", "gettext", "i18n", "l10n", "template"]
 categories = ["internationalization", "template-engine"]
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/radiosilence/blit"
+repository = "https://github.com/radiosilence/askama-gettext"
+documentation = "https://docs.rs/askama_gettext"
 readme = "README.md"
+include = ["src/", "README.md", "CHANGELOG.md", "LICENSE-MIT", "LICENSE-APACHE"]
 
 # Askama is not a dependency: the crate is what a template calls, and never calls
 # it. Rendering one is how the tests check that, so it is needed only there.

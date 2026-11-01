@@ -73,6 +73,9 @@ pub mod plural;
 mod similar;
 pub mod translate;
 
+/// The template syntax [`extract`] parses with, re-exported so a caller need not
+/// depend on the same `askama_parser` release to name it.
+pub use askama_parser::Syntax;
 pub use catalog::{Catalog, Catalogs, Fuzzy};
 pub use error::{Error, Result};
 pub use expression::Expression;

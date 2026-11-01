@@ -1,0 +1,1 @@
+- **Plural forms from CLDR.** `icu_plurals` picks the `msgstr[n]` for a count. A catalogue whose `Plural-Forms` header disagrees with CLDR, in the number of forms or the form any count selects, fails to load.

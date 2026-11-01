@@ -38,6 +38,7 @@ type Wanted<'a> = BTreeMap<(Option<String>, String), Vec<&'a Extracted>>;
 
 /// What changed, for reporting to whoever ran the extraction.
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
+#[non_exhaustive]
 pub struct Summary {
     /// Messages in the templates.
     pub total: usize,
