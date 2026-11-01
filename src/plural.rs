@@ -140,8 +140,9 @@ impl Forms {
     /// # Ok::<(), askama_gettext::Error>(())
     /// ```
     ///
-    /// A count CLDR puts in a category outside the language's form set — see
-    /// [`COUNTED`] — takes the general plural rather than the first slot. French at
+    /// A count CLDR puts in a category outside the language's form set (the set is
+    /// what the counts 0 to 200 reach) takes the general plural rather than the
+    /// first slot. French at
     /// a million is CLDR's `many`, which no French catalogue has a box for; `other`
     /// is both the right sentence and the one the catalogue's own `plural=`
     /// expression selects. The first slot is the singular, and would be the one
@@ -158,7 +159,8 @@ impl Forms {
 
     /// A `plural=` expression that selects the forms CLDR does.
     ///
-    /// Found by trying [`CANDIDATES`] and keeping the first CLDR confirms, so the
+    /// Found by trying a list of expressions long used in `.po` files, simplest
+    /// first, and keeping the first CLDR confirms, so the
     /// answer is verified rather than looked up. A language none of them fits is an
     /// error: writing an expression that has not been checked is the one thing this
     /// is here to avoid.
