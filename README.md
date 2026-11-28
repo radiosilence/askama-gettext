@@ -1,4 +1,4 @@
-# askama_gettext
+# askama-gettext
 
 gettext for [Askama](https://askama.rs) templates.
 
@@ -18,7 +18,7 @@ string nobody has translated yet renders as English rather than as a blank or a 
 
 ```toml
 [dependencies]
-askama_gettext = "0.1"
+askama-gettext = "0.1"
 ```
 
 The minimum supported Rust is 1.88, set by the ICU crates. CI builds against it,
@@ -41,13 +41,13 @@ impl Translate for Page<'_> {
 
 ## The functions
 
-| Template | gettext | For |
-|---|---|---|
-| `__("…")` | `gettext` | A sentence whose meaning is plain from the English |
-| `__p("context", "…")` | `pgettext` | Short or ambiguous text — "Cancel" alone cannot be translated reliably |
-| `__n("…", "…", n)` | `ngettext` | Anything countable |
-| `__np("context", "…", "…", n)` | `npgettext` | Countable, needing context |
-| `__h`, `__ph`, `__nh`, `__nph` | — | The same, where the English carries markup |
+| Template                       | gettext     | For                                                                    |
+| ------------------------------ | ----------- | ---------------------------------------------------------------------- |
+| `__("…")`                      | `gettext`   | A sentence whose meaning is plain from the English                     |
+| `__p("context", "…")`          | `pgettext`  | Short or ambiguous text — "Cancel" alone cannot be translated reliably |
+| `__n("…", "…", n)`             | `ngettext`  | Anything countable                                                     |
+| `__np("context", "…", "…", n)` | `npgettext` | Countable, needing context                                             |
+| `__h`, `__ph`, `__nh`, `__nph` | —           | The same, where the English carries markup                             |
 
 `%{name}` placeholders are filled with `.with("name", value)`, and a count is bound
 to `%{count}` for you. Names rather than positions, so a translator can reorder a
@@ -112,7 +112,7 @@ ar-EG: catalogue declares nplurals=2, CLDR gives 6 ([Zero, One, Two, Few, Many, 
 Two things worth knowing:
 
 - Categories are ordered as CLDR and gettext number them — zero, one, two, few,
-  many, other. `PluralCategory::all()` yields *alphabetically*, which would file
+  many, other. `PluralCategory::all()` yields _alphabetically_, which would file
   Arabic's `zero` under `msgstr[5]`.
 - Only categories a whole number can reach are counted. CLDR gives Polish four, but
   an integer is only ever one, few or many, and gettext's three slots are those.
